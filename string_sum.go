@@ -2,7 +2,6 @@ package string_sum
 
 import (
 	"errors"
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -29,6 +28,7 @@ func StringSum(input string) (output string, err error) {
 	text := strings.Split(input, "")
 	var res1 int
 	var flag bool
+	var result string
 
 	for i := 0; i < len(text); i++ {
 		flag = true
@@ -50,12 +50,13 @@ func StringSum(input string) (output string, err error) {
 				} else {
 					res1 -= res
 				}
-
+				result = strconv.Itoa(res1)
 			}
+		} else {
+			result = ""
 		}
 
 	}
-	fmt.Println(strconv.Itoa(res1))
 
-	return strconv.Itoa(res1), err
+	return result, err
 }
